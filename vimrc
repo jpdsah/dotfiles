@@ -4,6 +4,7 @@ let mapleader = " "
 " Disable VI Compatibility mode
 set nocompatible
 
+" Core configuration
 set number relativenumber
 
 " Plugins using Vim-Plug
@@ -14,6 +15,7 @@ call plug#begin()
 	Plug 'powerline/powerline-fonts'
 	Plug 'morhetz/gruvbox'
 	Plug 'tpope/vim-commentary'
+	Plug 'editorconfig/editorconfig-vim'
 call plug#end()
 
 " NERDTree keympas
@@ -29,4 +31,6 @@ nnoremap <C-f> :NERDTreeFind<CR>
 :set t_Co=256
 :set background=dark
 
+" Status bar
 set laststatus=2
+set noshowmode
