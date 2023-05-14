@@ -1,11 +1,16 @@
 " Set leader key to <Space>
-let mapleader = " "
+let mapleader = ","
 
 " Disable VI Compatibility mode
 set nocompatible
 
 " Core configuration
 set number relativenumber
+syntax enable
+filetype plugin on
+
+" Enable wild menu
+set wildmenu
 
 " Plugins using Vim-Plug
 call plug#begin()
@@ -17,6 +22,11 @@ call plug#begin()
 	Plug 'tpope/vim-commentary'
 	Plug 'editorconfig/editorconfig-vim'
 call plug#end()
+
+" Core
+nmap <leader>w :w!<cr>
+map <space> /
+map <C-space> ?
 
 " NERDTree keympas
 nnoremap <leader>n :NERDTreeFocus<CR>
