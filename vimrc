@@ -4,6 +4,8 @@ let mapleader = " "
 " Disable VI Compatibility mode
 set nocompatible
 
+set number relativenumber
+
 " Plugins using Vim-Plug
 call plug#begin()
 	Plug 'preservim/NERDTree'
