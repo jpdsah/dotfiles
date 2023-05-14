@@ -1,0 +1,10 @@
+[user]
+	name = "Jageshwar Sah"
+	email = "85445164+jpdsah@users.noreply.github.com"
+
+[init]
+	defaultBranch = "main"
+
+[push]
+	autoSetupRemote = true
+
