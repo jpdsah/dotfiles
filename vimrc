@@ -9,6 +9,18 @@ set number relativenumber
 syntax enable
 filetype plugin on
 
+" Disable arrow keys in normal mode and visual mode
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+
+" Disable arrows in insert mode
+inoremap <Up> <Nop>
+inoremap <Down> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
+
 " Enable wild menu
 set wildmenu
 
