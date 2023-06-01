@@ -10,4 +10,5 @@
 
 [core]
 	editor = "vim"
-
+[alias]
+	logs = "log --oneline --decorate --graph"

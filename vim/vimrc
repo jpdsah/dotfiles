@@ -3,6 +3,7 @@ let mapleader = ","
 
 " Disable VI Compatibility mode
 set nocompatible
+packadd YouCompleteMe
 
 " Core configuration
 set number relativenumber
@@ -24,17 +25,6 @@ inoremap <Right> <Nop>
 " Enable wild menu
 set wildmenu
 
-" Plugins using Vim-Plug
-call plug#begin()
-	Plug 'preservim/NERDTree'
-	Plug 'tpope/vim-fugitive'
-	Plug 'itchyny/lightline.vim'
-	Plug 'powerline/powerline-fonts'
-	Plug 'morhetz/gruvbox'
-	Plug 'tpope/vim-commentary'
-	Plug 'editorconfig/editorconfig-vim'
-call plug#end()
-
 " Core
 nmap <leader>w :w!<cr>
 map <space> /
@@ -45,13 +35,6 @@ nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
-
-
-" Grovbox
-:colorscheme gruvbox
-:set number
-:set t_Co=256
-:set background=dark
 
 " Status bar
 set laststatus=2
