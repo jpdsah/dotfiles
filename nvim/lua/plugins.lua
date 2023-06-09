@@ -22,8 +22,48 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   -- My plugins here
 
-  use 'bluz71/vim-nightfly-guicolors'
+  -- required plugins
+  use 'nvim-lua/plenary.nvim'
+  use 'kyazdani42/nvim-web-devicons'
 
+  -- Essential plugins
+  use 'bluz71/vim-nightfly-guicolors'   -- colorscheme
+  -- use 'joshdick/onedark.vim'              -- One Dark colorscheme
+  use 'tpope/vim-surround'              -- Surrounding 
+  use 'tpope/vim-commentary'            -- Commenting  
+  use 'preservim/nerdtree'              -- File Explorer
+  use 'vim-airline/vim-airline'
+
+  -- Fuzzy finding
+  use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+  use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" })
+  use({ "nvim-telescope/telescope-ui-select.nvim" }) -- for showing lsp code actions
+  -- Languages
+  use 'udalov/kotlin-vim'
+
+  -- use 'valloric/youcompleteme'
+
+  use {
+      'VonHeikemen/lsp-zero.nvim',
+      branch = 'v2.x',
+      requires = {
+          -- LSP Support
+          {'neovim/nvim-lspconfig'},             -- Required
+          {                                      -- Optional
+          'williamboman/mason.nvim',
+          run = function()
+              pcall(vim.cmd, 'MasonUpdate')
+          end,
+      },
+      {'williamboman/mason-lspconfig.nvim'}, -- Optional
+
+      -- Autocompletion
+      {'hrsh7th/nvim-cmp'},     -- Required
+      {'hrsh7th/cmp-nvim-lsp'}, -- Required
+      {'L3MON4D3/LuaSnip'},     -- Required
+  }
+}
+    
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
