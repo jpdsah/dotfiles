@@ -10,5 +10,8 @@
 
 [core]
 	editor = "vim"
+	autocrlf = input
 [alias]
 	logs = "log --oneline --decorate --graph"
+[color]
+	ui = auto
