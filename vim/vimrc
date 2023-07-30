@@ -4,11 +4,13 @@ let mapleader = ","
 " Disable VI Compatibility mode
 set nocompatible
 packadd YouCompleteMe
+packadd! dracula
 
 " Core configuration
 set number relativenumber
 syntax enable
 filetype plugin on
+colorscheme dracula
 
 " Disable arrow keys in normal mode and visual mode
 noremap <Up> <Nop>

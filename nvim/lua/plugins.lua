@@ -27,7 +27,8 @@ return require('packer').startup(function(use)
   use 'kyazdani42/nvim-web-devicons'
 
   -- Essential plugins
-  use 'bluz71/vim-nightfly-guicolors'   -- colorscheme
+  -- use 'bluz71/vim-nightfly-guicolors'   -- colorscheme
+  use 'folke/tokyonight.nvim'
   -- use 'joshdick/onedark.vim'              -- One Dark colorscheme
   use 'tpope/vim-surround'              -- Surrounding 
   use 'tpope/vim-commentary'            -- Commenting  
