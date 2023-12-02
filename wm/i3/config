@@ -13,11 +13,11 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Source Code Pro Medium 10
+font pango:Source Code Pro Regular 16
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-# font pango:terminator 12
+# font pango:Source Code Pro 16
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -184,27 +184,27 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # default gaps
-gaps inner 1
-gaps outer 0
+gaps inner 2
+gaps outer 1
 
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-    status_command i3status -c ~/.i3status.conf --transparency
-    i3bar_command i3bar --transparency
-        colors {
-            background #00000025
-            statusline #ffffff
-            separator #666666
-
-            focused_workspace  #4c7899 #285577 #ffffff
-            active_workspace   #333333 #5f676a #ffffff
-            inactive_workspace #333333 #222222 #888888
-            urgent_workspace   #2f343a #900000 #ffffff
-            binding_mode       #2f343a #900000 #ffffff
-    }
-}
+# bar {
+#     status_command i3status -c ~/.i3status.conf --transparency
+#     i3bar_command i3bar --transparency
+#         colors {
+#             background #00000025
+#             statusline #ffffff
+#             separator #666666
+# 
+#             focused_workspace  #4c7899 #285577 #ffffff
+#             active_workspace   #333333 #5f676a #ffffff
+#             inactive_workspace #333333 #222222 #888888
+#             urgent_workspace   #2f343a #900000 #ffffff
+#             binding_mode       #2f343a #900000 #ffffff
+#     }
+# }
 
 # Map CapsLock to Escape
 exec_always setxkbmap -option caps:escape
@@ -216,7 +216,7 @@ exec_always feh --bg-fill /home/sah/Pictures/abstract_nature.jpg
 exec_always picom -f
 
 # Polybar Launch Script
-# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Remove title bar
 for_window [class="^.*"] border pixel 1
