@@ -91,7 +91,11 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- Set to true if you have a Nerd Font installed
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
+
+-- Disable netrw for nvim-tree
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
@@ -102,7 +106,7 @@ vim.g.have_nerd_font = false
 vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
--- vim.opt.relativenumber = true
+vim.opt.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = "a"
@@ -161,6 +165,9 @@ vim.opt.scrolloff = 10
 vim.opt.hlsearch = true
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
+-- NvimTree keymaps
+vim.keymap.set("n", "<C-t>", "<cmd>NvimTreeFocus<CR>")
+
 -- Diagnostic keymaps
 vim.keymap.set(
     "n",
@@ -201,10 +208,10 @@ vim.keymap.set(
 )
 
 -- TIP: Disable arrow keys in normal mode
--- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
--- vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
--- vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
--- vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
+vim.keymap.set("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
+vim.keymap.set("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
+vim.keymap.set("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
+vim.keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
@@ -294,6 +301,12 @@ require("lazy").setup({
 
     -- "gc" to comment visual regions/lines
     { "numToStr/Comment.nvim", opts = {} },
+
+    -- File Explorer
+    {
+        "nvim-tree/nvim-tree.lua",
+        opts = {},
+    },
 
     -- Here is a more advanced example where we pass configuration
     -- options to `gitsigns.nvim`. This is equivalent to the following Lua:
@@ -861,9 +874,11 @@ require("lazy").setup({
                 -- No, but seriously. Please read `:help ins-completion`, it is really good!
                 mapping = cmp.mapping.preset.insert({
                     -- Select the [n]ext item
+                    ["<Tab>"] = cmp.mapping.select_next_item(),
                     ["<C-n>"] = cmp.mapping.select_next_item(),
                     -- Select the [p]revious item
                     ["<C-p>"] = cmp.mapping.select_prev_item(),
+                    ["<S-Tab>"] = cmp.mapping.select_prev_item(),
 
                     -- Scroll the documentation window [b]ack / [f]orward
                     ["<C-b>"] = cmp.mapping.scroll_docs(-4),
@@ -873,6 +888,7 @@ require("lazy").setup({
                     --  This will auto-import if your LSP supports it.
                     --  This will expand snippets if the LSP sent a snippet.
                     ["<C-y>"] = cmp.mapping.confirm({ select = true }),
+                    ["<Enter>"] = cmp.mapping.confirm({ select = true }),
 
                     -- Manually trigger a completion from nvim-cmp.
                     --  Generally you don't need this, because nvim-cmp will display
@@ -921,7 +937,7 @@ require("lazy").setup({
             -- Load the colorscheme here.
             -- Like many other themes, this one has different styles, and you could load
             -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-            vim.cmd.colorscheme("slate")
+            vim.cmd.colorscheme("tokyonight-storm")
 
             -- You can configure highlights by doing something like:
             vim.cmd.hi("Comment gui=none")
@@ -978,6 +994,7 @@ require("lazy").setup({
         build = ":TSUpdate",
         opts = {
             ensure_installed = {
+                "rust",
                 "bash",
                 "c",
                 "html",
