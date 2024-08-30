@@ -165,8 +165,12 @@ vim.opt.scrolloff = 10
 vim.opt.hlsearch = true
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
+-- Tab navigation
+vim.keymap.set("n", "<Tab>", "<cmd>tabnext<CR>")
+vim.keymap.set("n", "<S-Tab>", "<cmd>tabprevious<CR>")
+
 -- NvimTree keymaps
-vim.keymap.set("n", "<C-t>", "<cmd>NvimTreeFocus<CR>")
+vim.keymap.set("n", "<leader>t", "<cmd>NvimTreeFocus<CR>")
 
 -- Diagnostic keymaps
 vim.keymap.set(
@@ -305,7 +309,11 @@ require("lazy").setup({
     -- File Explorer
     {
         "nvim-tree/nvim-tree.lua",
-        opts = {},
+        opts = {
+            filters = {
+                custom = { "^.git$" },
+            },
+        },
     },
 
     -- Here is a more advanced example where we pass configuration
@@ -937,7 +945,7 @@ require("lazy").setup({
             -- Load the colorscheme here.
             -- Like many other themes, this one has different styles, and you could load
             -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-            vim.cmd.colorscheme("tokyonight-storm")
+            vim.cmd.colorscheme("tokyonight-night")
 
             -- You can configure highlights by doing something like:
             vim.cmd.hi("Comment gui=none")
