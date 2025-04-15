@@ -1,4 +1,4 @@
 #!/bin/bash
 
 # Git
-ln -s $(pwd)/gitconfig ~/.gitconfig
+ln -s $(pwd)/gitconfig/gitconfig ~/.gitconfig

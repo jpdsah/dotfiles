@@ -26,7 +26,7 @@ alert = #A54242
 disabled = #707880
 
 [bar/bar1]
-monitor = ${env:MONTIOR:eDP-1}
+monitor = ${env:MONTIOR:None-1}
 width = 100%
 height = 18pt
 radius = 0

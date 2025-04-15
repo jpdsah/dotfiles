@@ -26,5 +26,5 @@ git clone https://github.com/dracula/vim.git $VIM_PATH/pack/theme/start/dracula
 
 
 # Link ideavimrc also
-ln -s $PWD/vimrc $HOME/.vimrc
+ln -s $PWD/vimrc/vimrc $HOME/.vimrc
 ln -s $PWD/ideavimrc $HOME/.ideavimrc
