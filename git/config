@@ -1,0 +1,10 @@
+[user]
+	name = Jageshwar Sah
+	email = jageshwar@krshnatech.com
+
+[init]
+	defaultBranch = master
+
+[core]
+	editor = vim
+

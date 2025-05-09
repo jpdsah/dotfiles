@@ -10,7 +10,7 @@ packadd! dracula
 set number relativenumber
 syntax enable
 filetype plugin on
-colorscheme dracula
+"colorscheme dracula
 
 " Disable arrow keys in normal mode and visual mode
 noremap <Up> <Nop>
